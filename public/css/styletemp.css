@@ -1,0 +1,665 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#container-todotable {
+    flex: 1 0 auto;
+    margin-top: 6%;
+    margin-bottom: 10%;
+}
+
+.make-todo-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 32px 40px 32px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    gap: 18px;
+    min-width: 320px;
+    max-width: 400px;
+    margin: 40px auto;
+}
+
+.make-todo-form h1 {
+    margin-bottom: 10px;
+    color: #2e393d;
+    font-family: "Quicksand", "Franklin Gothic Medium", "Arial Narrow", Arial,
+        sans-serif;
+    font-size: 2em;
+    text-align: center;
+}
+
+.make-todo-form form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.make-todo-form label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: "Quicksand", "Franklin Gothic Medium", "Arial Narrow", Arial,
+        sans-serif;
+    color: #2e393d;
+    font-size: 1em;
+    width: 100%;
+    margin-bottom: 4px;
+}
+
+.make-todo-form input[type="text"],
+.make-todo-form input[type="password"],
+.make-todo-form input[type="date"],
+.make-todo-form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: 1em;
+    margin-top: 4px;
+    box-sizing: border-box;
+}
+
+.make-todo-form textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+
+.make-todo-form input[type="range"] {
+    width: 100%;
+    margin-top: 8px;
+    accent-color: #90cfc8;
+}
+
+.make-todo-form output {
+    margin-left: 8px;
+    font-weight: bold;
+    color: #2e393d;
+}
+
+.make-todo-form button {
+    align-self: center;
+    padding: 10px 28px;
+    background: #90cfc8;
+    color: #2e393d;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-family: "Quicksand", "Franklin Gothic Medium", "Arial Narrow", Arial,
+        sans-serif;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.make-todo-form button:hover {
+    background: #2e393d;
+    color: #fff;
+}
+
+#maketitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#titlebar {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    background: #90cfc8;
+    border-bottom: 1px solid #ccc;
+    margin: 0;
+    padding: 10px 60px 10px 20px;
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+#user {
+    position: relative;
+    margin-right: 40px;
+}
+
+#user :hover {
+    transition: background-color 0.3s ease;
+    background: #2e393d;
+    color: #fff;
+}
+
+h1 {
+    font-size: 2em;
+    color: #2e393d;
+    font-family: "Quicksand", "Franklin Gothic Medium", "Arial Narrow", Arial,
+        sans-serif;
+    font-weight: 700;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: #fff;
+    min-width: 120px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    border-radius: 12px;
+}
+
+#user:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 8px 16px;
+    color: black;
+    text-decoration: none;
+    font-family: "Quicksand", "Franklin Gothic Medium", "Arial Narrow", Arial,
+        sans-serif;
+    border-radius: 10px;
+}
+
+.dropdown-content a:hover {
+    background: #848484;
+    color: black;
+    border-radius: 10px;
+}
+
+footer {
+    width: 100%;
+    background: rgb(218, 218, 218);
+    padding: 10px 0;
+    text-align: center;
+    position: static; /* Remove relative, left, bottom */
+    z-index: 100;
+    font-family: "Quicksand", "Franklin Gothic Medium", "Arial Narrow", Arial,
+        sans-serif;
+    margin-top: auto; /* This pushes the footer to the bottom */
+}
+
+.logo {
+    width: auto;
+    height: 100px;
+    margin-right: 10px;
+}
+
+footer .container-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 0;
+    text-align: left;
+}
+
+footer .logo {
+    margin-right: 20px;
+}
+
+#nav-bar {
+    margin-top: 77px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    background: #e0f7f4;
+    padding: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#nav-bar a {
+    padding: 10px 20px;
+    background: #90cfc8;
+    color: #2e393d;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: "Quicksand", "Franklin Gothic Medium", "Arial Narrow", Arial,
+        sans-serif;
+}
+
+#nav-bar a:hover {
+    transition: background-color 0.3s ease;
+    background: #2e393d;
+    color: #fff;
+}
+
+#account-bts {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    font-family: "Quicksand", "Franklin Gothic Medium", "Arial Narrow", Arial,
+        sans-serif;
+}
+
+#account-bts a {
+    text-decoration: none;
+    color: black;
+    font-family: "Quicksand", "Franklin Gothic Medium", "Arial Narrow", Arial,
+        sans-serif;
+}
+
+#loginForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px 40px 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+#loginForm input {
+    margin: 5px;
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#loginForm button {
+    padding: 10px 20px;
+    background: #90cfc8;
+    color: #2e393d;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#loginForm button:hover {
+    background: #2e393d;
+    color: #fff;
+    transition: color 0.3s ease, background 0.3s ease;
+}
+
+#logintitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10%;
+}
+
+#loginpage {
+    background-image: url("../img/achtergrondlogin.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#editpage {
+    background-image: url("../img/achtergrondlogin.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#createpage {
+    background-image: url("../img/achtergrondlogin.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#aboutPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+#container-todotable {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+}
+
+#table-todo {
+    border-collapse: collapse;
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 30px;
+    background: #e0f7f4;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    font-family: "Quicksand", "Franklin Gothic Medium", "Arial Narrow", Arial,
+        sans-serif;
+}
+
+#table-todo th,
+#table-todo td {
+    border: 1px solid #90cfc8;
+    padding: 12px 16px;
+    text-align: left;
+}
+
+#table-todo th {
+    background: #90cfc8;
+    color: #2e393d;
+    font-weight: bold;
+}
+
+#table-todo tr:nth-child(even) {
+    background: #f6fbfa;
+}
+
+#table-todo tr:hover {
+    background: #c7eae5;
+    transition: background 0.2s;
+}
+
+.btn-edit,
+.btn-remove,
+.btn-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    min-width: 40px;
+    font-size: 1em;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 0 2px;
+    text-decoration: none;
+    text-align: center;
+    font-family: "Quicksand", "Franklin Gothic Medium", "Arial Narrow", Arial,
+        sans-serif;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-edit {
+    background: #90cfc8;
+    color: #2e393d;
+}
+
+.btn-edit:hover {
+    background: #608984;
+    color: #fff;
+}
+
+.btn-remove {
+    background: #e57373;
+    color: #fff;
+}
+
+.btn-remove:hover {
+    background: #b71c1c;
+    color: #fff;
+}
+
+#arrow-down,
+.btn-arrow {
+    width: 50px;
+    height: 50px;
+    background-color: #90cfc8;
+    color: #2e393d;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+}
+
+.btn-arrow:active {
+    background-color: #608984;
+    color: #fff;
+    transition: background 0.1s, color 0.1s;
+}
+
+.material-symbols-outlined {
+    font-size: 24px;
+    line-height: 1;
+    padding: 0;
+}
+
+td.actions {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    height: 48px;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Dropdown styling */
+.todo-dropdown {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
+    pointer-events: none;
+    padding: 0 16px;
+    background: #f6fbfa;
+    border-bottom: 2px solid #90cfc8;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.todo-dropdown.open {
+    opacity: 1;
+    max-height: 500px;
+    pointer-events: auto;
+    padding: 20px 16px;
+}
+
+.todo-dropdown form {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: transparent;
+}
+
+.todo-dropdown label {
+    font-family: "Quicksand", "Franklin Gothic Medium", "Arial Narrow", Arial,
+        sans-serif;
+    color: #2e393d;
+    font-size: 1em;
+}
+
+.todo-dropdown input[type="range"] {
+    width: 150px;
+    accent-color: #90cfc8;
+    margin: 0 10px;
+}
+
+.todo-dropdown output {
+    font-weight: bold;
+    color: #2e393d;
+    margin-left: 4px;
+}
+
+.todo-dropdown .btn-edit {
+    background: #90cfc8;
+    color: #2e393d;
+    border-radius: 6px;
+    border: none;
+    padding: 8px 16px;
+    font-family: "Quicksand", "Franklin Gothic Medium", "Arial Narrow", Arial,
+        sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    margin-left: 10px;
+}
+
+.todo-dropdown .btn-edit:hover {
+    background: #608984;
+    color: #fff;
+}
+
+.todo-dropdown strong {
+    color: #2e393d;
+    font-family: "Quicksand", "Franklin Gothic Medium", "Arial Narrow", Arial,
+        sans-serif;
+    font-size: 1em;
+}
+
+.todo-dropdown > div {
+    margin-left: 0;
+}
+
+.intro-section {
+    background: #e0f7f4;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+    padding: 32px 40px 24px 40px;
+    margin-bottom: 32px;
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    font-family: "Quicksand", "Franklin Gothic Medium", "Arial Narrow", Arial,
+        sans-serif;
+}
+
+.intro-section h1 {
+    color: #2e393d;
+    margin-bottom: 18px;
+    font-size: 2.2em;
+    font-family: "Quicksand", "Franklin Gothic Medium", "Arial Narrow", Arial,
+        sans-serif;
+}
+
+.intro-section p {
+    color: #2e393d;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.btn-add {
+    display: inline-block;
+    background: #90cfc8;
+    color: #2e393d;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 28px;
+    font-size: 1.1em;
+    font-family: "Quicksand", "Franklin Gothic Medium", "Arial Narrow", Arial,
+        sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 18px;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-add:hover {
+    background: #2e393d;
+    color: #fff;
+}
+
+/* Limit the width of the dropdown description and allow wrapping */
+.todo-dropdown .description {
+    max-width: 500px;
+    word-break: break-word;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+
+.description-scrollbox {
+    max-width: 500px;
+    max-height: 120px;
+    min-height: 40px;
+    background: #fff;
+    border: 1px solid #90cfc8;
+    border-radius: 8px;
+    padding: 10px;
+    overflow: auto;
+    word-break: break-word;
+    white-space: pre-wrap;
+    box-sizing: border-box;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 320px;
+    background: #e0f7f4;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+}
+
+.contact .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.contact input,
+.contact textarea {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #90cfc8;
+    font-family: inherit;
+}
+
+.contact button {
+    background: #90cfc8;
+    color: #2e393d;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 0;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.contact button:hover {
+    background: #2e393d;
+    color: #fff;
+}
+
+.contact h1 {
+    margin-top: -100px;
+}
