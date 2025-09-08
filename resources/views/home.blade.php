@@ -3,7 +3,7 @@
 <div id="container-todotable">
     <div class="intro-section">
         <h1>Welcome to Just Do It</h1>
-        <p>Here you can manage your todo's. You can add, edit, and remove tasks as needed.</p>
+        <p>Here you can manage your todo's. You can add, edit, and remove tasks exactly as needed.</p>
         <p>To get started, you can add a new todo item using the button below.</p>
         <a href="{{ route('todo.create') }}" class="btn-add">Add Todo</a>
     </div>
